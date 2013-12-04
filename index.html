@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>ATI - SASS et LESS</title>
+    
+    <meta name="description" content="ATI sur les préprocesseurs CSS : SASS et LESS." />
+    <meta name="author" content="David Rouyer" />
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+
+    <link href="css/impress-demo.css" rel="stylesheet" />
+    
+    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+</head>
+
+<body class="impress-not-supported">
+
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+    <!--<div style="width: 50%; height: 100%; background-color: #25497b; position: absolute; top:0; left:50%;"></div>
+    <div style="width: 50%; height: 100%; background-color: #c6538c; position: absolute; top:0px; left:0px;"></div>-->
+<div id="impress">
+    <div style="width: 5000px; height: 15000px; background-color: #c6538c; position: absolute; top:-2500px; left:-5000px; z-index: -9000;"></div>
+    <div style="width: 5000px; height: 15000px; background-color: #25497b; position: absolute; top:-2500px; left:0px; z-index: -9001;"></div>
+    
+    <div id="title" class="step slide" data-x="0" data-y="0">
+        <q style="text-align: center;"><h1>SASS</h1> <b style="font-size: 70px;">&</b> <h1>LESS</h1></q>
+        <q style="text-align: center;">Introduction aux<br/> préprocesseurs CSS <br/>(et plus)</q>
+    </div>
+    
+    <div class="step slide" data-x="0" data-y="500">
+        <q>Un <b>préprocesseur</b> CSS :
+            <ul>
+                <li><b>Extension</b> du langage CSS</li>
+                <li>Doit être <b>compilé</b></li>
+                <li>Multiples outils</li>
+            </ul>
+        </q>
+    </div>
+
+    <div class="step slide" data-x="0" data-y="1000">
+        <q><b>SASS</b> et <b>LESS</b> sont les plus célèbres.</q>
+    </div>
+    
+    <div class="step slide" data-x="0" data-y="1500">
+        <q>Fonctionnalités communes :</q>
+    </div>
+    
+    <div class="step slide" data-x="0" data-y="2000">
+        <q><h1 style="font-size: 100px;">Les variables</h1></q>
+        <q class="sass">$sass: #c6538c;</q>
+        <q class="less">@less: #25497b;</q>
+    </div>
+    
+    <div class="step slide" data-x="0" data-y="3000">
+        <q><h1 style="font-size: 79px;">Les règles imbriquées</h1></q><br>
+        <pre class="sass" style="font-size: 20px;">
+            #header {
+                h1 {
+                    font-size: 26px;
+                }
+                p {
+                    font-size: 12px;
+                    a {
+                        text-decoration: none;
+                        &:hover { border-width: 1px }
+                    }
+                }
+            }
+        </pre>
+        <pre class="less" style="font-size: 20px;">
+            #header {
+                h1 {
+                    font-size: 26px;
+                }
+                p {
+                    font-size: 12px;
+                    a {
+                        text-decoration: none;
+                        &:hover { border-width: 1px }
+                    }
+                }
+            }
+        </pre>
+    </div>
+    
+    <div class="step slide" data-x="0" data-y="4000">
+        <q><h1 style="font-size: 100px;">Mixins</h1></q><br>
+        <pre class="sass" style="margin-top: 20px; font-size: 22px;">
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    -o-border-radius: $radius;
+    border-radius: $radius;
+}
+
+.box { @include border-radius(10px); }
+        </pre>
+        <pre class="less marginal" style="margin-top: 20px; font-size: 22px;">
+.border-radius(@radius) {
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+    -ms-border-radius: @radius;
+    -o-border-radius: @radius;
+    border-radius: @radius;
+}
+
+.box { .border-radius(10px); }
+        </pre>
+    </div>
+    
+    <div class="step slide" data-x="0" data-y="5000">
+        <q><h1 style="font-size: 100px;">Opérations</h1></q><br>
+        <pre class="sass marginal" style="font-size: 23px;">
+            article[role="main"] {
+                float: left;
+                width: 600px / 960px * 100%;
+            }
+        </pre>
+        <pre class="less marginal" style="font-size: 23px;">
+            article[role="main"] {
+                float: left;
+                width: (600px / 960px * 100%);
+            }
+        </pre>
+    </div>
+    
+    <div class="step slide" data-x="0" data-y="6000">
+        <q><h1 style="font-size: 100px;">Fonctions</h1></q><br>
+        <pre class="sass marginal" style="font-size: 24px;">
+            #footer {
+                color: desaturate(#855, 10%);
+            }
+        </pre>
+        <pre class="less marginal" style="font-size: 24px;">
+            #footer {
+                color: desaturate(#855, 10%);
+            }
+        </pre>
+    </div>
+    
+    <div class="step slide" data-x="0" data-y="7000">
+        <q><h1 style="font-size: 100px;">Imports</h1></q><br>
+        <pre class="sass marginal">
+            @import 'reset';
+        </pre>
+        <pre class="less marginal">
+            @import "reset.css";
+        </pre>
+    </div>
+
+    <div class="step slide" data-x="350" data-y="8000">
+        <q style="text-align: center;"><h1 style="font-size: 100px;">SASS</h1><br/>Ruby<br/>Open Source<br/>Hosted with <a href="https://github.com/nex3/sass">♥</a> on GitHub</q>
+    </div>
+    <div class="step slide" data-x="1500" data-y="8000">
+        <q><h1 style="font-size: 100px;">L'héritage</h1></q><br>
+        <pre>
+        .message {
+            border: 1px solid #ccc;
+            padding: 10px;
+            color: #333;
+        }
+
+        .success {
+            @extend .message;
+            border-color: green;
+        }
+        </pre>
+    </div>
+    <div class="step slide" data-x="2500" data-y="8000">
+        <q><h1 style="font-size: 100px;">Modularité</h1></q><br>
+        <q>
+            Séparation en plusieurs fichiers :<br>
+            <b>_partial.scss</b>
+        </q>
+    </div>
+    <div class="step slide" data-x="3500" data-y="8000">
+        <h1 style="font-size: 70px; line-height: 100px;"><a href="http://compass-style.org/">COMPASS</a><br><span style="font-size: 60px;">Framework basé sur SASS</span></h1><br>
+        <ul>
+            <li>Mixins CSS3</li>
+            <li>Fonctions</li>
+            <li>Mise en page</li>
+            <li>Reset</li>
+            <li>etc.</li>
+        </ul>
+    </div>
+    <div class="step slide" data-x="-350" data-y="8500">
+        <q style="text-align: center;"><h1 style="font-size: 100px;">LESS</h1><br/>Javascript<br/>Open Source<br/>Hosted with <a href="https://github.com/less/less.js">♥</a> on GitHub</q>
+    </div>
+    <div class="step slide" data-x="-1500" data-y="8500">
+        <q>
+            <h1 style="font-size: 100px;">Client-side</h1>
+            ou
+            <h1 style="font-size: 100px;">Server-side</h1>
+        </q>
+    </div>
+    <div class="step slide" data-x="0" data-y="9500">
+        <q>
+            <h1 style="font-size: 100px;">Conclusion</h1><br>
+            Code less, do more.<br>
+            Abusez-en !
+        </q>
+    </div>
+</div>
+
+<div class="hint">
+    <p>Use a spacebar or arrow keys to navigate</p>
+</div>
+
+<script src="js/impress.js"></script>
+<script>impress().init();</script>
+
+</body>
+</html>
